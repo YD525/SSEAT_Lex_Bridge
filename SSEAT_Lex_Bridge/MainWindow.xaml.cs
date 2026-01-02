@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SSEAT_Lex.ModManagement;
 
 namespace SSEAT_Lex_Bridge
 {
@@ -23,6 +24,11 @@ namespace SSEAT_Lex_Bridge
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var GetMods = new ModReader().TestSCanModPath(@"C:\Users\52508\Desktop\1TestMod");
         }
     }
 }
