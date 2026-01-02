@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSEAT_Lex_Bridge", "SSEAT_Lex_Bridge\SSEAT_Lex_Bridge.csproj", "{1D0486D3-17EF-472C-BDE9-CD44A6817B3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSEAT_Lex", "SSEAT_Lex\SSEAT_Lex.csproj", "{B3FEE5EF-20DC-44F1-8E3C-375A3D53BDC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D0486D3-17EF-472C-BDE9-CD44A6817B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0486D3-17EF-472C-BDE9-CD44A6817B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0486D3-17EF-472C-BDE9-CD44A6817B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0486D3-17EF-472C-BDE9-CD44A6817B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3FEE5EF-20DC-44F1-8E3C-375A3D53BDC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3FEE5EF-20DC-44F1-8E3C-375A3D53BDC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3FEE5EF-20DC-44F1-8E3C-375A3D53BDC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3FEE5EF-20DC-44F1-8E3C-375A3D53BDC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B43CAE2D-5C5C-4A3E-AE48-0DB5D24936D1}
+	EndGlobalSection
+EndGlobal
