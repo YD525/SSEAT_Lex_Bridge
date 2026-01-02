@@ -29,6 +29,7 @@ namespace SSEAT_Lex_Bridge
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var GetMods = new ModReader().TestSCanModPath(@"C:\Users\52508\Desktop\1TestMod");
+            var CanTransMods = GetMods.Where(mod => mod.HavePex).ToList();
         }
     }
 }
