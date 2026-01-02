@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,15 @@ namespace SSEAT_Lex_Bridge
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var GetMods = new ModReader().TestSCanModPath(@"C:\Users\52508\Desktop\1TestMod");
-            var CanTransMods = GetMods.Where(mod => mod.HavePex).ToList();
+            var CanTransMods = GetMods.Where(Mod => Mod.HavePex).ToList();
+
+            foreach (var GetMod in CanTransMods)
+            {
+                foreach (var GetFile in GetMod.Files.Where(Path => Path.EndsWith(".pex", StringComparison.OrdinalIgnoreCase)).ToList())
+                { 
+                    
+                }
+            }
         }
     }
 }

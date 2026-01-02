@@ -11,20 +11,14 @@ namespace SSEAT_Lex.ModManagement
 {
     public class ModReader
     {
-        public class ModItem
+        public struct ModItem
         {
             public string Name { get; set; }
             public string Path { get; set; }
             public bool HavePex { get; set; }
-
-            public ModItem(string Path,bool HavePex)
-            { 
-               this.Path = Path;
-               this.Name = new FileInfo(Path).Name;
-               this.HavePex = HavePex;
-            }
+            public List<string> Files{ get; set; }
         }
-        public bool IsMod(string Path,ref bool HavePex)
+        public bool IsMod(string Path,ref bool HavePex,ref List<string> Paths)
         {
             string[] Extensions = new string[] { "*.esp", "*.pex", "*.esm", "*.esl", "*.bsa" };
             var Files = Extensions.SelectMany(ext => Directory.GetFiles(Path, ext, SearchOption.AllDirectories)).ToArray();
@@ -32,6 +26,7 @@ namespace SSEAT_Lex.ModManagement
             {
                 if (Files.Any(file => file.EndsWith(".pex", StringComparison.OrdinalIgnoreCase)))
                 {
+                    Paths = Files.ToList();
                     HavePex = true;
                 }
 
@@ -45,9 +40,16 @@ namespace SSEAT_Lex.ModManagement
             foreach (var GetDir in Directory.GetDirectories(Path))
             {
                 bool HavePex = false;
-                if (IsMod(GetDir,ref HavePex))
+                List<string> Files = new List<string>();
+
+                if (IsMod(GetDir,ref HavePex,ref Files))
                 {
-                    Mods.Add(new ModItem(GetDir,HavePex));
+                    ModItem NewModItem = new ModItem();
+                    NewModItem.Name = new FileInfo(GetDir).Name;
+                    NewModItem.Path = GetDir;
+                    NewModItem.HavePex = HavePex;
+                    NewModItem.Files = Files;
+                    Mods.Add(NewModItem);
                 }
             }
             return Mods;
