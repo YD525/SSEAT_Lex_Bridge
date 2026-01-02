@@ -32,11 +32,20 @@ namespace SSEAT_Lex_Bridge
             var GetMods = new ModReader().TestSCanModPath(@"C:\Users\52508\Desktop\1TestMod");
             var CanTransMods = GetMods.Where(Mod => Mod.HavePex).ToList();
 
+            List<string> ToDayPexs = new List<string>();
+
             foreach (var GetMod in CanTransMods)
             {
                 foreach (var GetFile in GetMod.Files.Where(Path => Path.EndsWith(".pex", StringComparison.OrdinalIgnoreCase)).ToList())
-                { 
-                    
+                {
+                    DateTime LastWriteTime = new FileInfo(GetFile).LastWriteTime;
+
+                    TimeSpan TimeDifference = DateTime.Now - LastWriteTime;
+
+                    if (TimeDifference.Days == 0)
+                    {
+                        ToDayPexs.Add(GetFile);
+                    }
                 }
             }
         }
